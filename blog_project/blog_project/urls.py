@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from blog.views import PostViewSet, CommentViewSet
-from blog.views_auth import RegisterView
+from blog.views_auth import RegisterView, LogoutView, UserProfileView
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename='post')
@@ -35,4 +35,6 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/register/', RegisterView.as_view(), name='register'),
+    path('api/logout/', LogoutView.as_view(), name='logout'),
+    path('api/profile/', UserProfileView.as_view(), name='profile'),
 ]
