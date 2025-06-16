@@ -19,6 +19,9 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from blog.views import PostViewSet, CommentViewSet
 from blog.views_auth import RegisterView, LogoutView, UserProfileView
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename='post')
@@ -29,6 +32,17 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Blog API",
+      default_version='v1',
+      description="Blog API with JWT Auth",
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
@@ -37,4 +51,5 @@ urlpatterns = [
     path('api/register/', RegisterView.as_view(), name='register'),
     path('api/logout/', LogoutView.as_view(), name='logout'),
     path('api/profile/', UserProfileView.as_view(), name='profile'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
