@@ -6,7 +6,7 @@ This is a production-ready Django + DRF REST API for a blog application with:
 - MySQL as database
 - DRF browsable API + optional Swagger/OpenAPI docs
 - Unit tests for key endpoints
-- Deployed on Render (free tier)
+- Deployed on Heroku (free tier)
 
 ---
 
@@ -37,8 +37,8 @@ This is a production-ready Django + DRF REST API for a blog application with:
 
 ## 🛠 **Local Setup**
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/r-rony08/django-blog-backend/.git
+cd django-blog-backend
 
 # create virtual environment
 python -m venv venv
