@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'blog',
     'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
