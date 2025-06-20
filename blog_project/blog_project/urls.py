@@ -23,6 +23,9 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+# from django.conf import settings
+# from django.conf.urls.static import static
+
 router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename='post')
 router.register(r'comments', CommentViewSet, basename='comment')
@@ -53,3 +56,4 @@ urlpatterns = [
     path('api/profile/', UserProfileView.as_view(), name='profile'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
+#urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
